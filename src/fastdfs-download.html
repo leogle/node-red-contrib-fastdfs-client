@@ -1,0 +1,54 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fastdfs-download',{
+        category: 'storage',
+        color: '#2ea44f',
+        defaults: {
+            tracker:{value:"",type:"fastdfs-tracker"},
+            fileid:{value:""},
+            filename: {value:""}
+        },
+        inputs:2,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return "download "+this.filename;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="fastdfs-download">
+    <div class="form-row">
+        <label for="node-input-tracker"><i class="fa fa-tag"></i> Tracker</label>
+        <input type="text" id="node-input-tracker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-fileid"><i class="fa fa-tag"></i> 文件名FileId</label>
+        <input type="text" id="node-input-fileid" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filename"><i class="fa fa-tag"></i> 文件名</label>
+        <input type="text" id="node-input-filename" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="fastdfs-download">
+    <p>down file from fastdfs.</p>
+    
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+      <dt>
+        msg.fileId <span class="property-type">string</span>
+      </dt>
+      <dd> 远程服务文件ID.</dd>
+      <dt>
+        msg.fileName <span class="property-type">string</span>
+      </dt>
+      <dd> 本地保存文件名</dd>
+    </dl>
+  
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+      <dt>payload <span class="property-type">string</span></dt>
+      <dd></dd>
+    </dl>
+</script>

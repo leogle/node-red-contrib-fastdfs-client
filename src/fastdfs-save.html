@@ -1,0 +1,77 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fastdfs-save',{
+        category: 'storage',
+        color: '#2ea44f',
+        defaults: {
+            tracker:{value:"",type:"fastdfs-tracker"},
+            filename: {value:""}
+        },
+        inputs:2,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return "save "+this.filename;
+        }
+    });
+</script>
+<script>
+    RED.nodes.registerType('fastdfs-tracker',{
+        category: 'config',
+        defaults: {
+            host: {value:""},
+            port: {value:22122},
+            timeout: {value:10000},
+            chartset: {value:'utf8'}
+        },
+        label: function() {
+            return this.host+":"+this.port;
+        }
+    });
+</script>
+<script type="text/html" data-template-name="fastdfs-tracker">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-timeout"><i class="fa fa-bookmark"></i> 超时</label>
+        <input type="text" id="node-config-input-timeout">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-chartset"><i class="fa fa-bookmark"></i> 编码</label>
+        <input type="text" id="node-config-input-chartset">
+    </div>
+</script>
+<script type="text/html" data-template-name="fastdfs-save">
+    <div class="form-row">
+        <label for="node-input-tracker"><i class="fa fa-tag"></i> Tracker</label>
+        <input type="text" id="node-input-tracker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filename"><i class="fa fa-tag"></i> 文件名</label>
+        <input type="text" id="node-input-filename" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="fastdfs-save">
+    <p>save file to fastdfs.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+      <dt>
+        fileName <span class="property-type">string</span>
+      </dt>
+      <dd> 上传文件名.</dd>
+    </dl>
+  
+  
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+      <dt>payload <span class="property-type">string</span></dt>
+      <dd>文件ID</dd>
+    </dl>
+</script>
