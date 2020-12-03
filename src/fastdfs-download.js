@@ -11,7 +11,7 @@ module.exports = function (RED) {
                     host: this.tracker.host,
                     port: this.tracker.port
                 }],
-                //timeout: this.tracker.timeout,
+                timeout: this.tracker.timeout,
                 charset: this.tracker.charset
             });
             let fileId = config.fileid || msg.fileId;
