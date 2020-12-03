@@ -18,6 +18,7 @@
       "fastdfs-download":"src/fastdfs-download.js"
     }
   },
+  "keywords": ["node-red"],
   "dependencies": {
     "fastdfs-client": "^1.0.2"
   }

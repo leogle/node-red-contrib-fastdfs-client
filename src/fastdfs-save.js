@@ -20,9 +20,10 @@ module.exports = function (RED) {
                     port: this.tracker.port
                 }],
                 timeout:parseInt(this.tracker.timeout),
-                charset: this.tracker.charset
+                charset: this.tracker.charset,
+                defaultExt: msg.fileExt || config.defaultext || 'txt'
             });
-            let fileName = config.filename || msg.fileName || msg.payload
+            let fileName = msg.fileName || msg.payload || config.filename  
             fdfs.upload(fileName, {
                 //     // 上传方法 [upload, uploadAppender, append, modify], 默认为upload
                 method: 'upload',
