@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-fastdfs-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a node-red node for fastdfs client",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "https://github.com/leogle/node-red-contrib-fastdfs-client"
   },
   "author": "lrh",
-  "license": "GPL",
+  "license": "MIT",
   "node-red": {
     "nodes": {
       "fastdfs-save": "src/fastdfs-save.js",

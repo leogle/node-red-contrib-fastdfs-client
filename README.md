@@ -21,6 +21,7 @@ fileName: absolute file path to be saved
 
 ## fastdfs-save node
 ### input
+payload:file content
 fileName:absolute file path
 
 ### output

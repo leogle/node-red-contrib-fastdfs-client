@@ -19,10 +19,10 @@ module.exports = function (RED) {
                     host: this.tracker.host,
                     port: this.tracker.port
                 }],
-                timeout: this.tracker.timeout,
+                timeout:parseInt(this.tracker.timeout),
                 charset: this.tracker.charset
             });
-            let fileName = config.filename || msg.fileName
+            let fileName = config.filename || msg.fileName || msg.payload
             fdfs.upload(fileName, {
                 //     // 上传方法 [upload, uploadAppender, append, modify], 默认为upload
                 method: 'upload',
