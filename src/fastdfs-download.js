@@ -3,7 +3,7 @@ module.exports = function (RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         this.tracker = RED.nodes.getNode(config.tracker);
-        
+
         node.on('input', function (msg) {
             let FdfsClient = require('fastdfs-client');
             let fdfs = new FdfsClient({
@@ -16,7 +16,7 @@ module.exports = function (RED) {
             });
             let fileId = config.fileid || msg.fileId;
             let fileName = config.filename || msg.fileName;
-            fdfs.download(fileId,fileName).then(function () {
+            fdfs.download(fileId, fileName).then(function () {
                 node.send(msg);
             }).catch(function (err) {
                 console.error(err);

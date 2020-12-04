@@ -13,15 +13,16 @@ A node-red node to upload and download file from FastDfs
 download single file from FasfDfs
 ### input
 fileId:FastDfs fileId to download \
-fileName: absolute file path to be saved
-fileExt: File extension
+fileName: absolute file path to be saved \
+
 ### output
 
 ## fastdfs-save node
 upload
 ### input
-payload:file content
-fileName:absolute file path 
+payload:file content \
+fileName:absolute file path \
+fileExt: File extension
 
 ### output
 payload: FastDfs fileId

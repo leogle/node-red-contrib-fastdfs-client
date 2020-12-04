@@ -19,18 +19,18 @@ module.exports = function (RED) {
                     host: this.tracker.host,
                     port: this.tracker.port
                 }],
-                timeout:parseInt(this.tracker.timeout),
+                timeout: parseInt(this.tracker.timeout),
                 charset: this.tracker.charset,
                 defaultExt: msg.fileExt || config.defaultext || 'txt'
             });
-            let fileName = msg.fileName || msg.payload || config.filename  
+            let fileName = msg.fileName || msg.payload || config.filename
             fdfs.upload(fileName, {
                 //     // 上传方法 [upload, uploadAppender, append, modify], 默认为upload
                 method: 'upload',
                 // 指定文件存储的group，不指定则由tracker server分配
                 group: 'group1',
             }).then(function (fileId) {
-                msg.payload=fileId;
+                msg.payload = fileId;
                 node.send(msg);
             }).catch(function (err) {
                 console.error(err);
